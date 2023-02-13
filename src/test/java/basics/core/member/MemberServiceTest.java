@@ -1,15 +1,17 @@
 package basics.core.member;
 
+import basics.core.config.AppConfig;
 import basics.core.member.service.MemberService;
 import basics.core.member.service.MemberServiceImpl;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class MemberServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
+//    MemberService memberService = new MemberServiceImpl(memberRepository);
+    AppConfig appConfig = new AppConfig();
+    MemberService memberService = appConfig.memberService();
 
     @Test
     void join(){
