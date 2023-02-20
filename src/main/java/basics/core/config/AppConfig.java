@@ -2,6 +2,7 @@ package basics.core.config;
 
 import basics.core.discount.DiscountPolicy;
 import basics.core.discount.FixDiscountPolicy;
+import basics.core.discount.RateDiscountPolicy;
 import basics.core.member.repository.MemberRepository;
 import basics.core.member.repository.MemoryMemberRepository;
 import basics.core.member.service.MemberService;
@@ -26,6 +27,7 @@ public class AppConfig {
     }
 
     public DiscountPolicy discountPolicy(){
-        return new FixDiscountPolicy();
+//        return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 }
