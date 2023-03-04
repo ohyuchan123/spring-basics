@@ -13,10 +13,10 @@ public class ApplicationContextInfoTest {
     @Test
     @DisplayName("모든 빈 출력하기")
     void findAllBean(){
-        String[] bf = ac.getBeanDefinitionNames();
+        String[] bf = ac.getBeanDefinitionNames();//스프링에 등록된 모든 빈 이름을 조회한다.
 
         for (String s : bf) {
-            Object bean = ac.getBean(s);
+            Object bean = ac.getBean(s);//빈 이름으로 빈 객체(인스턴스)를 조회한다.
             System.out.println("name = " + s+"object"+bean);
         }
     }
