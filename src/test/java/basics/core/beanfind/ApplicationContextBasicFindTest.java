@@ -14,6 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ApplicationContextBasicFindTest {
 
+    //구체 타입으로 조회하면 변경시 유연성이 떨어진다.
+
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 
 
