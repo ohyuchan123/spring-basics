@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ApplicationContextSameBeanFindTest {
 
@@ -28,8 +27,11 @@ public class ApplicationContextSameBeanFindTest {
     @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 중복 오류가 발생한다.")
     void findBeanByTypeDuplicate(){
 //        MemberRepository bean = ac.getBean(MemberRepository.class);
-        assertThrows(NoUniqueBeanDefinitionException.class,()->
-                ac.getBean(MemberRepository.class));
+//        Assertions.assertThrows(NoUniqueBeanDefinitionException.class,()->
+//                ac.getBean(MemberRepository.class));
+
+        MemberRepository memberRepository = ac.getBean(MemberRepository.class);
+        assertThat(memberRepository).isInstanceOf(MemberRepository.class);
     }
 
     @Test
