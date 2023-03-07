@@ -25,16 +25,19 @@ public class AppConfig {
     @Bean//Spring에서는 Spring의 DI Container에 의해 관리되는 POJO(Plain Old Java Object)를 Bean이라고 부른다.
     //AppConfig는 애플리케이션의 실제 동작에 필요한 구현 객체를 생성한다.
     public MemberService memberService(){
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean//private 상태는 불가능
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService(){
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(
                 memberRepository(),
                 discountPolicy());
@@ -45,4 +48,9 @@ public class AppConfig {
 //        return new FixDiscountPolicy();
         return new RateDiscountPolicy();
     }
+
+    /*출력 결과
+    * call AppConfig.memberService
+      call AppConfig.memberRepository
+      call AppConfig.orderService*/
 }
